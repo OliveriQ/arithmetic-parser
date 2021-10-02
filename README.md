@@ -1,5 +1,5 @@
 ## Overview:
-A simple arithmetic parser for evaluating mathematical expressions.
+A simple arithmetic parser for evaluating mathematical expressions, written in C#.
 * **Lexer**: Splits the input text into a list of tokens. Each token is an object that has a string, an enum type and other members associated with it:
 ```
 "1 + 2 * 3" -> [1, +, 2, *, 3]
