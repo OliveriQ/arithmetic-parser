@@ -4,7 +4,7 @@ A simple arithmetic parser for evaluating mathematical expressions, written in C
 ```
 "1 + 2 * 3" -> [1, +, 2, *, 3]
 ```
-* **Parser**: Uses a method known as the [shunting-yard algorithm](https://en.wikipedia.org/wiki/Shunting-yard_algorithm) in order to convert the list of tokens into postfix notation. This drastically simplifies the next step which is producing the final result. 
+* **Parser**: Uses a method known as the [shunting-yard algorithm](https://en.wikipedia.org/wiki/Shunting-yard_algorithm) in order to convert the list of tokens into postfix notation. This drastically simplifies the next step which involves producing the final result. 
 The conversion to postfix notation yields the following:
 ```
 [1, +, 2, *, 3] -> [1, 2, 3, *, +]
