@@ -17,13 +17,9 @@ Afterwards, it uses a stack-based algorithm that iterates through the postfix li
 | :---: |  :---: |   
 |  numberToken     |    any integer    | 
 |   plusToken    |    +    | 
-
-* numberToken  
-* plusToken
-* minusToken
-* multiplyToken
-* divideToken
-* exponentToken
-* lBracketToken
-* rBracketToken
-* whitespace
+|   minusToken    |    -    | 
+|   multiplyToken    |    *    | 
+|   divideToken    |    /     | 
+|   exponentToken    |    ^    | 
+|   lBracketToken    |    (    | 
+|   rBracketToken    |    )    | 
