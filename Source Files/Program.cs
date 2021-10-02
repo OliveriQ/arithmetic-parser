@@ -15,7 +15,6 @@ namespace arithmeticParser
                 text = Console.ReadLine();
 
                 var parser = new Parser(text);
-
             }
         }
     }
