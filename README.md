@@ -23,3 +23,4 @@ Afterwards, it uses a stack-based algorithm that iterates through the postfix li
 |   exponentToken    |    ^    | 
 |   lBracketToken    |    (    | 
 |   rBracketToken    |    )    | 
+|   whitespace    |    " "    | 
