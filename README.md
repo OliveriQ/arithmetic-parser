@@ -18,6 +18,7 @@ Operators supported:
 * Division "/"
 * Exponent "^"
 * Brackets "()"
+
 Valid tokens:
 * numberToken 
 * plusToken
