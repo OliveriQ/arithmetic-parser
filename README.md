@@ -18,3 +18,13 @@ Operators supported:
 * Division "/"
 * Exponent "^"
 * Brackets "()"
+Valid tokens:
+* numberToken 
+* plusToken
+* minusToken
+* multiplyToken
+* divideToken
+* exponentToken
+* lBracketToken
+* rBracketToken
+* whitespace
