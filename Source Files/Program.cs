@@ -7,7 +7,7 @@ namespace arithmeticParser
         public static void Main(string[] args)
         {
             string text;
-
+            
             while (true)
             {
                 Console.Write("> ");
