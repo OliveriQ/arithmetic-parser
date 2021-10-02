@@ -11,7 +11,7 @@ The conversion to postfix notation yields the following:
 ```
 Afterwards, it uses a stack-based algorithm that iterates through the postfix list in order to yield the final result. When it sees a number, that number is pushed on the stack. If it sees an operator, it will pop 2 numbers off the stack and apply the given operation, then push the result back on the stack. The final answer is produced when there's one element left on the stack.
 ## Details:
-Operators supported:
+**Operators supported:**
 * Addition "+"
 * Subtraction "-"
 * Multiplication "*"
@@ -19,7 +19,7 @@ Operators supported:
 * Exponent "^"
 * Brackets "()"
 
-Valid tokens:
+**Valid tokens:**
 * numberToken 
 * plusToken
 * minusToken
