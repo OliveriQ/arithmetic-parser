@@ -16,6 +16,7 @@ namespace arithmeticParser
 
             ConvertToPostfix();
             Parse();
+
             display();
         }
 
@@ -38,13 +39,13 @@ namespace arithmeticParser
                             c = a + b;
                             break;
                         case "-":
-                            c = a - b;
+                            c = b - a;
                             break;
                         case "*":
                             c = a * b;
                             break;
                         case "/":
-                            c = a / b;
+                            c = b / a;
                             break;
                     }
 
@@ -54,7 +55,7 @@ namespace arithmeticParser
             result = stack.Pop();
         }
 
-        private void ConvertToPostfix() // shunting-yard algorithm
+        private void ConvertToPostfix()
         {
             Queue<Token> outputQueue = new Queue<Token>();
             Stack<Token> operatorStack = new Stack<Token>();
@@ -64,8 +65,7 @@ namespace arithmeticParser
                 Token token = _tokens[i];
                 if (token.getType() == tokenType.numberToken)
                     outputQueue.Enqueue(token);
-                else if (token.getType() == tokenType.plusToken || token.getType() == tokenType.minusToken ||
-                        token.getType() == tokenType.multiplyToken || token.getType() == tokenType.divideToken)
+                else if (token.isOperator() == true)
                 {
                     try
                     {

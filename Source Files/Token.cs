@@ -19,9 +19,6 @@ namespace arithmeticParser
         private string m_value;
         private tokenType m_type;
 
-        public Token left = null;
-        public Token right = null;
-
         public Token(tokenType type, string value)
         {
             m_type = type;
@@ -36,6 +33,25 @@ namespace arithmeticParser
         public tokenType getType()
         {
             return m_type;
+        }
+
+        public bool isOperator()
+        {
+            switch (m_type)
+            {
+                case tokenType.plusToken:
+                    return true;
+
+                case tokenType.minusToken:
+                    return true;
+
+                case tokenType.multiplyToken:
+                    return true;
+
+                case tokenType.divideToken:
+                    return true;
+            }
+            return false;
         }
         public int getPrecedence()
         {
