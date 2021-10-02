@@ -17,47 +17,6 @@ namespace arithmeticParser
             _endOfText = text.Length;
 
             Tokenize();
-            ConvertToPostfix();
-        }
-
-        private void ConvertToPostfix() // shunting-yard algorithm
-        {
-            Queue<Token> outputQueue = new Queue<Token>();
-            Stack<Token> operatorStack = new Stack<Token>();
-
-            for (int i = 0; i < _tokens.Count; i++)
-            {
-                Token token = _tokens[i];
-                if (token.getType() == tokenType.numberToken)
-                    outputQueue.Enqueue(token);
-                else if (token.getType() == tokenType.plusToken || token.getType() == tokenType.minusToken ||
-                        token.getType() == tokenType.multiplyToken || token.getType() == tokenType.divideToken)
-                {
-                    try
-                    {
-                        while (operatorStack.Peek().getPrecedence() >= token.getPrecedence())
-                        {
-                            outputQueue.Enqueue(operatorStack.Pop());
-                        }
-                        operatorStack.Push(token);
-
-                    }
-                    catch (InvalidOperationException)
-                    {
-                        operatorStack.Push(token);
-                    }
-                }
-            }
-            while (operatorStack.Count > 0)
-            {
-                outputQueue.Enqueue(operatorStack.Pop());
-            }
-
-            _tokens.Clear();
-            while (outputQueue.Count > 0)
-            {
-                _tokens.Add(outputQueue.Dequeue());
-            }
         }
 
         private void Tokenize(tokenType type = tokenType.whitespace, int index = 0, string pToken = "")
