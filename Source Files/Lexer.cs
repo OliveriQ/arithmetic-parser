@@ -62,6 +62,11 @@ namespace arithmeticParser
                 addToken(token, tokenType.divideToken);
                 Tokenize(tokenType.divideToken, index + 1);
             }
+            else if (token == "^")
+            {
+                addToken(token, tokenType.exponentToken);
+                Tokenize(tokenType.exponentToken, index + 1);
+            }
             else if (token == "(")
             {
                 addToken(token, tokenType.lBracketToken);

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace arithmeticParser
 {
@@ -15,7 +14,6 @@ namespace arithmeticParser
                 text = Console.ReadLine();
 
                 var parser = new Parser(text);
-
             }
         }
     }

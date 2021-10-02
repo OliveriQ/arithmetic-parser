@@ -11,6 +11,7 @@ namespace arithmeticParser
         minusToken,
         multiplyToken,
         divideToken,
+        exponentToken,
         lBracketToken,
         rBracketToken,
         whitespace
@@ -18,28 +19,28 @@ namespace arithmeticParser
 
     class Token
     {
-        private string m_value;
-        private tokenType m_type;
+        private string _value;
+        private tokenType _type;
 
         public Token(tokenType type, string value)
         {
-            m_type = type;
-            m_value = value;
+            _type = type;
+            _value = value;
         }
 
         public string getValue()
         {
-            return m_value;
+            return _value;
         }
 
         public tokenType getType()
         {
-            return m_type;
+            return _type;
         }
 
         public bool isOperator()
         {
-            switch (m_type)
+            switch (_type)
             {
                 case tokenType.plusToken:
                     return true;
@@ -58,7 +59,7 @@ namespace arithmeticParser
 
         public bool isBracket()
         {
-            switch (m_type)
+            switch (_type)
             {
                 case tokenType.lBracketToken:
                     return true;
@@ -70,7 +71,7 @@ namespace arithmeticParser
         }
         public int getPrecedence()
         {
-            switch (m_type)
+            switch (_type)
             {
                 case tokenType.plusToken:
                     return 1;

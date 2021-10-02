@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace arithmeticParser
 {
@@ -27,6 +26,7 @@ namespace arithmeticParser
             for (int i = 0; i < _tokens.Count; i++)
             {
                 Token token = _tokens[i];
+  
                 if (token.getType() == tokenType.numberToken)
                     stack.Push(Int32.Parse(token.getValue()));
                 else
@@ -38,12 +38,15 @@ namespace arithmeticParser
                         case "+":
                             c = a + b;
                             break;
+
                         case "-":
                             c = b - a;
                             break;
+
                         case "*":
                             c = a * b;
                             break;
+
                         case "/":
                             c = b / a;
                             break;
@@ -63,6 +66,23 @@ namespace arithmeticParser
             for (int i = 0; i < _tokens.Count; i++)
             {
                 Token token = _tokens[i];
+
+                if (token.getType() == tokenType.exponentToken)
+                {
+                    Token Base = _tokens[i - 1];
+                    Token Exponent = _tokens[i + 1];
+
+                    _tokens.RemoveRange(i, 2);
+
+                    for (int j = 0; j < Int32.Parse(Exponent.getValue()) - 1; j++)
+                    {
+                        _tokens.Insert(i, Base);
+                        _tokens.Insert(i, new Token(tokenType.multiplyToken, "*"));
+                    }
+
+                    i--;
+                }
+
                 if (token.getType() == tokenType.numberToken)
                     outputQueue.Enqueue(token);
 
