@@ -11,6 +11,8 @@ namespace arithmeticParser
         minusToken,
         multiplyToken,
         divideToken,
+        lBracketToken,
+        rBracketToken,
         whitespace
     }
 
@@ -53,6 +55,19 @@ namespace arithmeticParser
             }
             return false;
         }
+
+        public bool isBracket()
+        {
+            switch (m_type)
+            {
+                case tokenType.lBracketToken:
+                    return true;
+
+                case tokenType.rBracketToken:
+                    return true;
+            }
+            return false;
+        }
         public int getPrecedence()
         {
             switch (m_type)
@@ -68,6 +83,12 @@ namespace arithmeticParser
 
                 case tokenType.divideToken:
                     return 2;
+
+                case tokenType.lBracketToken:
+                    return 3;
+
+                case tokenType.rBracketToken:
+                    return 3;
 
                 default:
                     return 0;

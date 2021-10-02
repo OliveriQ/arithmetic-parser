@@ -62,7 +62,16 @@ namespace arithmeticParser
                 addToken(token, tokenType.divideToken);
                 Tokenize(tokenType.divideToken, index + 1);
             }
-
+            else if (token == "(")
+            {
+                addToken(token, tokenType.lBracketToken);
+                Tokenize(tokenType.lBracketToken, index + 1);
+            }
+            else if (token == ")")
+            {
+                addToken(token, tokenType.rBracketToken);
+                Tokenize(tokenType.rBracketToken, index + 1);
+            }
             else if (token == " ")
                 Tokenize(tokenType.whitespace, index + 1);
         }

@@ -65,12 +65,16 @@ namespace arithmeticParser
                 Token token = _tokens[i];
                 if (token.getType() == tokenType.numberToken)
                     outputQueue.Enqueue(token);
+
                 else if (token.isOperator() == true)
                 {
                     try
                     {
-                        while (operatorStack.Peek().getPrecedence() >= token.getPrecedence())
+                        while (operatorStack.Peek().getPrecedence() >= token.getPrecedence() &&
+                                operatorStack.Peek().isBracket() == false)
+                        {
                             outputQueue.Enqueue(operatorStack.Pop());
+                        }
 
                         operatorStack.Push(token);
 
@@ -79,6 +83,16 @@ namespace arithmeticParser
                     {
                         operatorStack.Push(token);
                     }
+                }
+                else if (token.getType() == tokenType.lBracketToken)
+                    operatorStack.Push(token);
+
+                else if (token.getType() == tokenType.rBracketToken)
+                {
+                    while (operatorStack.Peek().getType() != tokenType.lBracketToken)
+                        outputQueue.Enqueue(operatorStack.Pop());
+
+                    operatorStack.Pop();
                 }
             }
             while (operatorStack.Count > 0)
