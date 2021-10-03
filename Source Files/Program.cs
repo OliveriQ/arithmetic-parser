@@ -7,13 +7,13 @@ namespace arithmeticParser
         public static void Main(string[] args)
         {
             string text;
-            
+
             while (true)
             {
-                Console.Write("> ");
+                Console.Write(">>> ");
                 text = Console.ReadLine();
 
-                var parser = new Parser(text);
+                var interpreter = new Interpreter(text);
             }
         }
     }
