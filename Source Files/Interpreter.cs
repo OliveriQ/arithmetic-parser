@@ -20,7 +20,7 @@ namespace arithmeticParser
 
         private void Execute()
         {
-            Stack<int> stack = new Stack<int>();
+            var stack = new Stack<int>();
 
             for (int i = 0; i < _tokens.Count; i++)
             {
@@ -59,18 +59,7 @@ namespace arithmeticParser
 
         public void display()
         {
-            Console.Write("[");
-            for (int i = 0; i < _tokens.Count; i++)
-            {
-                if (i < _tokens.Count - 1)
-                    Console.Write(_tokens[i].getValue() + ", ");
-                else
-                    Console.Write(_tokens[i].getValue());
-            }
-            Console.Write("]");
-            Console.WriteLine();
-
-            Console.WriteLine("Result: " + _result);
+            Console.WriteLine(_result);
         }
     }
 }

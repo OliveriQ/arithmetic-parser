@@ -11,9 +11,13 @@ namespace arithmeticParser
             while (true)
             {
                 Console.Write(">>> ");
-                text = Console.ReadLine();
 
-                var interpreter = new Interpreter(text);
+                try
+                {
+                    text = Console.ReadLine();
+                    var interpreter = new Interpreter(text);
+                }
+                catch (System.InvalidOperationException) { continue; }
             }
         }
     }
