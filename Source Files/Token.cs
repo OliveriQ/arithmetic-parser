@@ -69,6 +69,7 @@ namespace arithmeticParser
             }
             return false;
         }
+        
         public int getPrecedence()
         {
             switch (_type)
