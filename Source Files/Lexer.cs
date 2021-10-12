@@ -80,6 +80,7 @@ namespace arithmeticParser
             else if (token == " ")
                 Tokenize(tokenType.whitespace, index + 1);
         }
+        
         private void addToken(string value, tokenType type)
         {
             _tokens.Add(new Token(type, value));
