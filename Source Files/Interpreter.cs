@@ -54,6 +54,7 @@ namespace arithmeticParser
                     stack.Push(c);
                 }
             }
+            
             _result = stack.Pop();
         }
 
