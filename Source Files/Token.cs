@@ -54,6 +54,7 @@ namespace arithmeticParser
                 case tokenType.divideToken:
                     return true;
             }
+            
             return false;
         }
 
@@ -67,6 +68,7 @@ namespace arithmeticParser
                 case tokenType.rBracketToken:
                     return true;
             }
+            
             return false;
         }
         
@@ -91,7 +93,7 @@ namespace arithmeticParser
 
                 case tokenType.rBracketToken:
                     return 3;
-
+                    
                 default:
                     return 0;
             }
